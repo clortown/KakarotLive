@@ -1,0 +1,282 @@
+/* HEADER */
+
+body {
+    margin: 0;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    height: 3.5em;
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid seashell;
+    /* To align items vertically */
+    display: flex;
+    align-items: center;
+}
+
+header img {
+    height: 90%;
+    width: auto;
+}
+
+header span {
+    /* Will probably change this */
+    font-size: 3em;
+    margin-left: 10px;
+}
+
+
+/* AD BANNER */
+
+#banner {
+    /* For some reason if I make the id ad-banner it just disappears immediately??? */
+    position: fixed;
+    top: 3.5em;
+    z-index: 8;
+    height: 50px;
+    width: 100%;
+    background-color: orange;
+    border-bottom: 1px solid seashell;
+    /* To align items vertically */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#banner h3 {
+    margin-left: 2%;
+}
+
+#banner a {
+    color: seashell;
+    text-decoration: none;
+}
+
+#banner button {
+    margin-right: 2%;
+    background-color: orange;
+    color: seashell;
+    
+}
+
+
+/* GENERAL FORMATTING */
+
+.container {
+    margin-top: 70px;
+    text-align: center;
+    width: 100%;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; /* Horizontal align */
+    align-items: center; /* Vertical align */
+}
+
+.container .row .col {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; /* Horizontal align */
+    /* text-align: center only works on divs if you set them to display: inline-block 
+    and I was afraid to do that to heart-container */
+}
+
+.col #kakarot {
+    max-width: 80%; /* This is the constraint when the browser is small (when it's real big max-height becomes the constaint */
+    height: auto;
+    max-height: 400px; /* Don't want it to get too tall if the browser's real wide */
+    border: 1px solid seashell;
+    margin: 20px 0;
+}
+
+
+/* HEART BUTTON AND COUNTER */
+
+.heart-container {
+    width: 80%; /* Note: It's only gonna line up with Kakarot's image on the left when Kakarot is at his max-width */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; /* Vertical align */
+}
+
+#heart-button {
+    padding: 5px 15px;
+    border: 1px solid black;
+    border-radius: 30%;
+}
+
+button {
+    outline: none; /* So clicking it doesn't cause a weird border to appear */
+    border: none;
+}
+
+#heart-counter {
+    margin-left: 15px;
+}
+
+
+/* CHAT WINDOW */
+
+body{
+    font-family: 'Nunito';
+}
+
+h2{
+    font-size: 18px;
+    padding: 10px 20px;
+    color: #575ed8;
+}
+
+#mario-chat{
+    max-height: 500px;
+    /* margin: 30px auto; */
+    border: 1px solid #ddd;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
+    border-radius: 2px;
+}
+
+#chat-window{
+    overflow: auto;
+    background: #f9f9f9;
+}
+
+#output p{
+    padding: 14px 0px;
+    margin: 0 20px;
+    border-bottom: 1px solid #e9e9e9;
+    color: #555;
+}
+
+#feedback p{
+    color: #aaa;
+    padding: 14px 0px;
+    margin: 0 20px;
+}
+
+#output strong{
+    color: #575ed8;
+}
+
+#mario-chat label{
+    box-sizing: border-box;
+    display: block;
+    padding: 10px 20px;
+}
+
+#mario-chat input{
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background: #eee;
+    border: 0;
+    display: block;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    font-family: Nunito;
+    font-size: 16px;
+}
+
+#mario-chat button{
+    background: #575ed8;
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    padding: 12px 0;
+    width: 100%;
+    border-radius: 0 0 2px 2px;
+}
+
+
+/* KAKAROT CSS ANIMATIONS */
+
+/* https://animista.net/play/basic/rotate/rotate-center */
+/* This makes an element rotate when it has the class of rotate-center, doesn't ask me how */
+.rotate-center{-webkit-animation:rotate-center .6s ease-in-out both;animation:rotate-center .6s ease-in-out both}
+@-webkit-keyframes rotate-center{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes rotate-center{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}
+
+/* Makes an element rotate about its top when it has the class rotate-top */
+.rotate-top{-webkit-animation:rotate-top .5s cubic-bezier(.455,.03,.515,.955) both;animation:rotate-top .5s cubic-bezier(.455,.03,.515,.955) both}
+@-webkit-keyframes rotate-top{0%{-webkit-transform:rotate(0);transform:rotate(0);-webkit-transform-origin:top;transform-origin:top}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg);-webkit-transform-origin:top;transform-origin:top}}@keyframes rotate-top{0%{-webkit-transform:rotate(0);transform:rotate(0);-webkit-transform-origin:top;transform-origin:top}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg);-webkit-transform-origin:top;transform-origin:top}}
+
+/* Makes element rotate scale down */
+.rotate-scale-down{-webkit-animation:rotate-scale-down .65s linear both;animation:rotate-scale-down .65s linear both}
+@-webkit-keyframes rotate-scale-down{0%{-webkit-transform:scale(1) rotateZ(0);transform:scale(1) rotateZ(0)}50%{-webkit-transform:scale(.5) rotateZ(180deg);transform:scale(.5) rotateZ(180deg)}100%{-webkit-transform:scale(1) rotateZ(360deg);transform:scale(1) rotateZ(360deg)}}@keyframes rotate-scale-down{0%{-webkit-transform:scale(1) rotateZ(0);transform:scale(1) rotateZ(0)}50%{-webkit-transform:scale(.5) rotateZ(180deg);transform:scale(.5) rotateZ(180deg)}100%{-webkit-transform:scale(1) rotateZ(360deg);transform:scale(1) rotateZ(360deg)}}
+
+/* Makes element bounce */
+.slide-top{-webkit-animation:slide-top .5s cubic-bezier(.25,.46,.45,.94) both;animation:slide-top .5s cubic-bezier(.25,.46,.45,.94) both}
+@-webkit-keyframes slide-top {
+    0%, 50%, 100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+    25%, 75% {
+      -webkit-transform: translateY(-100px);
+              transform: translateY(-100px);
+    }
+  }
+  @keyframes slide-top {
+    0%, 50%, 100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+    25%, 75% {
+      -webkit-transform: translateY(-100px);
+              transform: translateY(-100px);
+    }
+  }
+  
+
+
+/* MEDIA RULES TO MAKE THINGS WRAP */
+
+@media only screen and (min-width: 500px) {
+    .col {
+        width: 50%;
+    }
+
+    .heart-container {
+        justify-content: left;
+    }
+
+    #heart-button {
+        margin-left: 15px;
+    }
+
+    #mario-chat {
+        width: 70%;
+        margin-right: 10%;
+    }
+
+    #chat-window{
+        height: 300px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .col {
+        min-width: 240px;
+        width: 100%;
+    }
+
+    .heart-container {
+        justify-content: center;
+    }
+
+    #mario-chat {
+        width: 80%;
+        margin-top: 20px;
+    }
+
+    #chat-window{
+        min-height: 150px;
+        max-height: 300px;
+    }
+}

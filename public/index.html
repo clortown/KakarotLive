@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KakarotLive Sockets</title>
+    <link href="resources/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <img src="kakarot.png">
+
+        <span>Kakarot Live</span>
+
+        <div>
+
+        </div>
+    </header>
+
+    <div id="banner">
+        <h3><a href="https://www.amazon.com/Squishable-Comfort-Food-Carrot-15/dp/B0794FF447/ref=sr_1_1?crid=3F5EN7JJCBY4R&dchild=1&keywords=squishable+carrot&qid=1594528311&sprefix=squishable+car%2Caps%2C172&sr=8-1"
+                target="_blank">Get your Kakarot merch here!</a></h3>
+        <button id="close-ad">x</button>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col">
+                <img id="kakarot" src="kakarot.png">
+
+                <div class="heart-container">
+                    <button id="heart-button">&lt;3</button>
+                    <div id="heart-counter"></div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div id="mario-chat">
+                    <div id="chat-window">
+                        <div id="output"></div>
+                    </div>
+            
+                    <input id="handle" type="text" placeholder="Handle">
+                    <input id="message" type="text" placeholder="Message">
+                    <button id="send">Send</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="resources/main.js"></script>
+
+    <!-- https://getbootstrap.com/docs/4.5/getting-started/introduction/ : 
+        "Many of our components require the use of JavaScript to function. 
+        Specifically, they require jQuery, Popper.js, and our own JavaScript plugins. 
+        Place the following <script>s near the end of your pages, right before the closing </body> tag, 
+        to enable them. jQuery must come first, then Popper.js, and then our JavaScript plugins." -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    
+    <!-- Copied 1st script from socket.io website: -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="chat.js"></script>
+</body>
+
+</html>
