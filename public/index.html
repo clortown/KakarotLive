@@ -4,8 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KakarotLive Sockets</title>
+    <title>KakarotLive</title>
     <link href="resources/styles.css" rel="stylesheet">
+
+    <!-- From https://favicon.io/emoji-favicons/carrot/ -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 </head>
 
 <body>
@@ -20,8 +26,7 @@
     </header>
 
     <div id="banner">
-        <h3><a href="https://www.amazon.com/Squishable-Comfort-Food-Carrot-15/dp/B0794FF447/ref=sr_1_1?crid=3F5EN7JJCBY4R&dchild=1&keywords=squishable+carrot&qid=1594528311&sprefix=squishable+car%2Caps%2C172&sr=8-1"
-                target="_blank">Get your Kakarot merch here!</a></h3>
+        <h3><a href="https://amzn.to/2ZVzcpu">Get your Kakarot merch here!</a></h3>
         <button id="close-ad">x</button>
     </div>
 
@@ -42,7 +47,7 @@
                     <div id="chat-window">
                         <div id="output"></div>
                     </div>
-            
+
                     <input id="handle" type="text" placeholder="Handle">
                     <input id="message" type="text" placeholder="Message">
                     <button id="send">Send</button>
@@ -70,7 +75,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
-    
+
     <!-- Copied 1st script from socket.io website: -->
     <script src="/socket.io/socket.io.js"></script>
     <script src="chat.js"></script>
