@@ -4,8 +4,8 @@ var socket = require('socket.io');
 
 // App setup
 var app = express();
-var server = app.listen(4000, '192.168.1.104', function(){
-    console.log('listening to requests at 192.168.1.104:4000');
+var server = app.listen(8080, '192.168.1.104', function(){
+    console.log('listening to requests at 192.168.1.104:8080');
 });
 
 // Static files
