@@ -2,32 +2,46 @@
 
 body {
     margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", Arial, NanumGothic, sans-serif;
 }
 
-header {
+#header {
+    /* https://html-color.codes/brown */
     position: fixed;
     top: 0;
     z-index: 10;
     height: 3.5em;
     width: 100%;
-    background-color: white;
-    border-bottom: 1px solid seashell;
+    background-color: orange;
+    /* Alt: springgreen */
+    ;
+    color: #853700;
     /* To align items vertically */
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
-header img {
-    height: 90%;
+#header .gnb {
+    height: 100%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.gnb img {
+    height: 2em;
     width: auto;
+    margin: 0;
 }
 
-header span {
+.gnb span {
     /* Will probably change this */
-    font-size: 3em;
+    font-size: 1.5em;
     margin-left: 10px;
+    font-weight: 800;
 }
-
 
 /* AD BANNER */
 
@@ -38,8 +52,8 @@ header span {
     z-index: 8;
     height: 50px;
     width: 100%;
-    background-color: orange;
-    border-bottom: 1px solid seashell;
+    /* background-color: orange; */
+    background-color: #dfffdf;
     /* To align items vertically */
     display: flex;
     align-items: center;
@@ -51,232 +65,511 @@ header span {
 }
 
 #banner a {
-    color: seashell;
+    color: #003300;
     text-decoration: none;
 }
 
 #banner button {
     margin-right: 2%;
-    background-color: orange;
-    color: seashell;
-    
+    background-color: #dfffdf;
+    color: #003300;
+
 }
 
+/* CONTAINERS */
 
-/* GENERAL FORMATTING */
-
-.container {
-    margin-top: 70px;
-    text-align: center;
-    width: 100%;
+#container {
+    margin-top: 4.2em;
 }
 
-.row {
+#container,
+#content,
+.live_section {
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly; /* Horizontal align */
-    align-items: center; /* Vertical align */
+    justify-content: center;
 }
 
-.container .row .col {
-    margin: 0;
+.cont_area {
+    /* This is for all the stuff around the vlive video, it's the first div in the vlive code that isn't 100% width */
+    /* background-color: gray; */
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.live_cont {
+    /* This is now the section that hosts live_area and heart_area */
+    /* background-color: rgb(36, 35, 35); */
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.live_area,
+.heart_area,
+.comment_area {
+    display: flex;
+    align-items: center;
+    /* Vertical align */
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 1px;
+}
+
+.live_area {
+    position: relative;
+    /* For some reason I had to make it relative for the background image to not overflow */
+    /* background-color: seashell; */
+    width: 100%;
+    height: 88%;
+    justify-content: center;
+    /* Centers horiztonally */
+    border: 1px solid lightgray;
+}
+
+.heart_area {
+    /* background-color: pink; */
+    width: 100%;
+    height: 12%;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+
+.comment_area {
+    /* background-color: honeydew; */
+    width: 30%;
+    /* height: 100%;  */
+    justify-content: center;
+    border-top: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
     padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly; /* Horizontal align */
-    /* text-align: center only works on divs if you set them to display: inline-block 
-    and I was afraid to do that to heart-container */
 }
 
-.col #kakarot {
-    max-width: 80%; /* This is the constraint when the browser is small (when it's real big max-height becomes the constaint */
+
+/* LIVE AREA */
+
+.live_area::before {
+    content: "";
+    background-image: url('carrotfield2.jpg');
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+    left: 2px;
+    opacity: 0.7;
+}
+
+.live_area * {
+    position: relative;
+    /* Need this second relative to make main content not transparent with the background */
+}
+
+
+#kakarot {
+    max-height: 90%;
+    max-width: 80%;
+    /* This is the constraint when the browser is small (when it's real big max-height becomes the constaint */
     height: auto;
-    max-height: 400px; /* Don't want it to get too tall if the browser's real wide */
-    border: 1px solid seashell;
     margin: 20px 0;
 }
 
 
 /* HEART BUTTON AND COUNTER */
 
-.heart-container {
-    width: 80%; /* Note: It's only gonna line up with Kakarot's image on the left when Kakarot is at his max-width */
+.live-title,
+.title2 {
+    box-sizing: border-box;
+    height: 50%;
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center; /* Vertical align */
+    align-items: center;
+    /* Vertical align */
+    margin-left: 10px;
+}
+
+.live-title {
+    padding-top: 4px;
+}
+
+.title2 {
+    font-size: 0.7em;
+    padding-bottom: 5px;
+}
+
+.title2 .live {
+    color: #853700;
+    background-color: orange;
+    padding: 2px 5px 1px 5px;
+    /* (text is weird and aligned more toward the top so padded uneven) */
+    border-radius: 3px;
+}
+
+#heart-button img {
+    height: 0.8em;
+    width: auto;
 }
 
 #heart-button {
-    padding: 5px 15px;
-    border: 1px solid black;
-    border-radius: 30%;
+    display: flex;
+    align-items: center;
+    /* Vertical align (I use this way too much) */
+    border: none;
+    background-color: white;
 }
 
 button {
-    outline: none; /* So clicking it doesn't cause a weird border to appear */
+    outline: none;
+    /* So clicking it doesn't cause a weird border to appear */
     border: none;
 }
 
 #heart-counter {
+    margin-left: 2px;
+}
+
+#heart-button,
+.give-hearts-pls {
     margin-left: 15px;
 }
 
 
 /* CHAT WINDOW */
 
-body{
-    font-family: 'Nunito';
-}
-
-h2{
-    font-size: 18px;
-    padding: 10px 20px;
-    color: #575ed8;
-}
-
-#mario-chat{
-    max-height: 500px;
+#mario-chat {
+    height: 100%;
+    width: 100%;
+    /* background-color: #f5f5f5; */
     /* margin: 30px auto; */
-    border: 1px solid #ddd;
-    box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
-    border-radius: 2px;
+    /* border: 1px solid #ddd; */
+    /* box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
+    border-radius: 2px; */
 }
 
-#chat-window{
-    overflow: auto;
-    background: #f9f9f9;
+#live-chat {
+    width: 100%;
+    margin: 0;
+    height: 7%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid lightgray;
 }
 
-#output p{
-    padding: 14px 0px;
-    margin: 0 20px;
-    border-bottom: 1px solid #e9e9e9;
+#live-chat h4 {
+    margin: 0;
+    padding-left: 10px;
+}
+
+#chat-window {
+    width: 100%;
+    margin: 0;
+    height: 73%;
+    overflow-y: auto;
+}
+
+#output p {
+    padding: 1em 0.5em;
+    margin: 0.7em 1em;
+    background-color: #f5f5f5;
+    border-radius: 0.5em;
     color: #555;
 }
 
-#feedback p{
+/* #feedback p{
     color: #aaa;
     padding: 14px 0px;
     margin: 0 20px;
+} */
+
+#output strong {
+    color: orange;
+    /* Alt: springgreen */
 }
 
-#output strong{
-    color: #575ed8;
-}
-
-#mario-chat label{
+/* #mario-chat label{
     box-sizing: border-box;
     display: block;
     padding: 10px 20px;
+} */
+
+#comment-button {
+    box-sizing: border-box;
+    margin: 0;
+    height: 20%;
+    border-top: 1px solid lightgray;
 }
 
-#mario-chat input{
-    padding: 10px 20px;
+#mario-chat input {
+    padding: 0 20px;
     box-sizing: border-box;
     background: #eee;
     border: 0;
     display: block;
     width: 100%;
+    /* height: 33%; */
     background: #fff;
-    border-bottom: 1px solid #eee;
-    font-family: Nunito;
-    font-size: 16px;
+    border-bottom: 1px solid lightgray;
+    /* font-size: 16px; */
 }
 
-#mario-chat button{
-    background: #575ed8;
-    color: #fff;
-    font-size: 18px;
+#mario-chat button {
+    box-sizing: border-box;
+    background: orange;
+    /* Alt: springgreen */
+    ;
+    /* color: #003300; */
+    color: #853700;
+    font-weight: 700;
+    /* font-size: 18px;
     border: 0;
-    padding: 12px 0;
+    padding: 12px 0; */
+    /* height: 34%; */
     width: 100%;
-    border-radius: 0 0 2px 2px;
+    /* border-radius: 0 0 2px 2px; */
 }
-
 
 /* KAKAROT CSS ANIMATIONS */
 
 /* https://animista.net/play/basic/rotate/rotate-center */
 /* This makes an element rotate when it has the class of rotate-center, doesn't ask me how */
-.rotate-center{-webkit-animation:rotate-center .6s ease-in-out both;animation:rotate-center .6s ease-in-out both}
-@-webkit-keyframes rotate-center{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes rotate-center{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}
+.rotate-center {
+    -webkit-animation: rotate-center .6s ease-in-out both;
+    animation: rotate-center .6s ease-in-out both
+}
+
+@-webkit-keyframes rotate-center {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes rotate-center {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
 
 /* Makes an element rotate about its top when it has the class rotate-top */
-.rotate-top{-webkit-animation:rotate-top .5s cubic-bezier(.455,.03,.515,.955) both;animation:rotate-top .5s cubic-bezier(.455,.03,.515,.955) both}
-@-webkit-keyframes rotate-top{0%{-webkit-transform:rotate(0);transform:rotate(0);-webkit-transform-origin:top;transform-origin:top}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg);-webkit-transform-origin:top;transform-origin:top}}@keyframes rotate-top{0%{-webkit-transform:rotate(0);transform:rotate(0);-webkit-transform-origin:top;transform-origin:top}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg);-webkit-transform-origin:top;transform-origin:top}}
+.rotate-top {
+    -webkit-animation: rotate-top .5s cubic-bezier(.455, .03, .515, .955) both;
+    animation: rotate-top .5s cubic-bezier(.455, .03, .515, .955) both
+}
+
+@-webkit-keyframes rotate-top {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+        -webkit-transform-origin: top;
+        transform-origin: top
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+        -webkit-transform-origin: top;
+        transform-origin: top
+    }
+}
+
+@keyframes rotate-top {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+        -webkit-transform-origin: top;
+        transform-origin: top
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+        -webkit-transform-origin: top;
+        transform-origin: top
+    }
+}
 
 /* Makes element rotate scale down */
-.rotate-scale-down{-webkit-animation:rotate-scale-down .65s linear both;animation:rotate-scale-down .65s linear both}
-@-webkit-keyframes rotate-scale-down{0%{-webkit-transform:scale(1) rotateZ(0);transform:scale(1) rotateZ(0)}50%{-webkit-transform:scale(.5) rotateZ(180deg);transform:scale(.5) rotateZ(180deg)}100%{-webkit-transform:scale(1) rotateZ(360deg);transform:scale(1) rotateZ(360deg)}}@keyframes rotate-scale-down{0%{-webkit-transform:scale(1) rotateZ(0);transform:scale(1) rotateZ(0)}50%{-webkit-transform:scale(.5) rotateZ(180deg);transform:scale(.5) rotateZ(180deg)}100%{-webkit-transform:scale(1) rotateZ(360deg);transform:scale(1) rotateZ(360deg)}}
+.rotate-scale-down {
+    -webkit-animation: rotate-scale-down .65s linear both;
+    animation: rotate-scale-down .65s linear both
+}
+
+@-webkit-keyframes rotate-scale-down {
+    0% {
+        -webkit-transform: scale(1) rotateZ(0);
+        transform: scale(1) rotateZ(0)
+    }
+
+    50% {
+        -webkit-transform: scale(.5) rotateZ(180deg);
+        transform: scale(.5) rotateZ(180deg)
+    }
+
+    100% {
+        -webkit-transform: scale(1) rotateZ(360deg);
+        transform: scale(1) rotateZ(360deg)
+    }
+}
+
+@keyframes rotate-scale-down {
+    0% {
+        -webkit-transform: scale(1) rotateZ(0);
+        transform: scale(1) rotateZ(0)
+    }
+
+    50% {
+        -webkit-transform: scale(.5) rotateZ(180deg);
+        transform: scale(.5) rotateZ(180deg)
+    }
+
+    100% {
+        -webkit-transform: scale(1) rotateZ(360deg);
+        transform: scale(1) rotateZ(360deg)
+    }
+}
 
 /* Makes element bounce */
-.slide-top{-webkit-animation:slide-top .5s cubic-bezier(.25,.46,.45,.94) both;animation:slide-top .5s cubic-bezier(.25,.46,.45,.94) both}
+.slide-top {
+    -webkit-animation: slide-top .5s cubic-bezier(.25, .46, .45, .94) both;
+    animation: slide-top .5s cubic-bezier(.25, .46, .45, .94) both
+}
+
 @-webkit-keyframes slide-top {
-    0%, 50%, 100% {
-      -webkit-transform: translateY(0);
-              transform: translateY(0);
+
+    0%,
+    50%,
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
     }
-    25%, 75% {
-      -webkit-transform: translateY(-100px);
-              transform: translateY(-100px);
+
+    25%,
+    75% {
+        -webkit-transform: translateY(-100px);
+        transform: translateY(-100px);
     }
-  }
-  @keyframes slide-top {
-    0%, 50%, 100% {
-      -webkit-transform: translateY(0);
-              transform: translateY(0);
+}
+
+@keyframes slide-top {
+
+    0%,
+    50%,
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
     }
-    25%, 75% {
-      -webkit-transform: translateY(-100px);
-              transform: translateY(-100px);
+
+    25%,
+    75% {
+        -webkit-transform: translateY(-100px);
+        transform: translateY(-100px);
     }
-  }
-  
+}
 
 
 /* MEDIA RULES TO MAKE THINGS WRAP */
 
-@media only screen and (min-width: 500px) {
-    .col {
-        width: 50%;
+@media only screen and (min-width: 600px) {
+
+    .cont_area {
+        height: 500px;
     }
 
-    .heart-container {
-        justify-content: left;
+    .comment_area {
+        height: 100%;
     }
 
-    #heart-button {
-        margin-left: 15px;
+    #mario-chat input {
+        height: 33%;
     }
 
-    #mario-chat {
-        width: 70%;
-        margin-right: 10%;
-    }
-
-    #chat-window{
-        height: 300px;
+    #mario-chat button {
+        height: 34%;
     }
 }
 
-@media only screen and (max-width: 500px) {
-    .col {
-        min-width: 240px;
+
+@media only screen and (max-width: 600px) {
+    /* The comment area technically completely overflows from the content container here 
+    bc the live_cont and comment_area are still at 100% the height of the container.
+    (If you don't know what I mean just inspect the elements, you'll see.)
+    But it looks fine so whatever.  */
+
+    .cont_area {
+        height: 257px;
+        /* Things overflow but if I leave it out they stretch weirdly so whatever */
+    }
+
+    .live_cont {
+        min-width: 170px;
         width: 100%;
     }
 
-    .heart-container {
-        justify-content: center;
+    .live_area {
+        height: 200px;
     }
 
-    #mario-chat {
-        width: 80%;
-        margin-top: 20px;
+    .heart_area {
+        height: 57px;
     }
 
-    #chat-window{
-        min-height: 150px;
-        max-height: 300px;
+    .comment_area {
+        min-width: 170px;
+        /* The min-width is to make sure it wraps. */
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-left: 1px solid lightgray;
+        width: 100%;
+        height: 310px;
+        /* Not quite the right height but if I leave it out things get messed up */
+        border: none;
+    }
+
+    #live-chat,
+    #chat-window {
+        border: 1px solid lightgray;
+        border-bottom: none;
+        box-sizing: border-box;
+    }
+
+    #live-chat {
+        height: 32px;
+    }
+
+    #chat-window {
+        height: 200px;
+    }
+
+    #comment-button {
+        height: 77px;
+        border: 1px solid lightgray;
+    }
+
+    #mario-chat input,
+    #mario-chat button {
+        box-sizing: border-box;
+        height: 25px;
+    }
+
+    #mario-chat input {
+        border-bottom: 1px solid lightgray;
     }
 }

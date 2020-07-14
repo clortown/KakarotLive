@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KakarotLive</title>
+
     <link href="resources/styles.css" rel="stylesheet">
+    <!-- <link href="resources/vlivestyles.css" rel="stylesheet"> -->
 
     <!-- From https://favicon.io/emoji-favicons/carrot/ -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -15,45 +17,63 @@
 </head>
 
 <body>
-    <header>
-        <img src="kakarot.png">
-
-        <span>Kakarot Live</span>
-
-        <div>
-
+    <div id="header">
+        <div class="gnb">
+            <img src="apple-touch-icon.png">
+            <span>Kakarot Live</span>
         </div>
-    </header>
+    </div>
 
     <div id="banner">
-        <h3><a href="https://amzn.to/2ZVzcpu">Get your Kakarot merch here!</a></h3>
+        <h3><a href="https://amzn.to/2ZVzcpu" target="_blank">Get your Kakarot merch here!</a></h3>
         <button id="close-ad">x</button>
     </div>
 
-    <div class="container">
-        <div class="row">
+    <div id="container">
+        <div id="content">
+            <div class="live_section">
+                <div class="cont_area">
 
-            <div class="col">
-                <img id="kakarot" src="kakarot.png">
+                    <div class="live_cont">
+                        <div class="live_area">
+                            <img id="kakarot" src="kakarot2.png">
+                        </div>
 
-                <div class="heart-container">
-                    <button id="heart-button">&lt;3</button>
-                    <div id="heart-counter"></div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div id="mario-chat">
-                    <div id="chat-window">
-                        <div id="output"></div>
+                        <div class="heart_area">
+                            <div class="live-title">
+                                <strong>Hearts for Kakarot</strong>
+                            </div>
+                            <div class="title2">
+                                <p class="live">LIVE</p>
+                                <button id="heart-button"><img id="imgClickAndChange" src="resources/heartbutton.png"></button>
+                                <!-- I want to add a section that says the number of views, like Vlive, but idk how to do that yet -->
+                                <div id="heart-counter"></div>
+                                <p class="give-hearts-pls">Give Kakarot Hearts!</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <input id="handle" type="text" placeholder="Handle">
-                    <input id="message" type="text" placeholder="Message">
-                    <button id="send">Send</button>
+                    <div class="comment_area">
+                        <div id="mario-chat">
+                            <div id="live-chat">
+                                <h4>Live Chat</h4>
+                            </div>
+
+                            <div id="chat-window">
+                                <div id="output"></div>
+                            </div>
+
+                            <div id="comment-button">
+                                <input id="handle" type="text" placeholder="Handle">
+                                <input id="message" type="text" placeholder="Message">
+                                <button id="send">Send</button>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
-
         </div>
     </div>
 
