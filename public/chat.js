@@ -1,7 +1,8 @@
 // Make connection
 var webSocketHost = location.protocol === 'https:' ? 'wss://' : 'ws://';
 var externalIp = $('body').data('external-ip');
-var webSocketUri = webSocketHost + externalIp + ':65080';
+var webSocketUri = webSocketHost + externalIp + ':8080';
+console.log(webSocketUri);
 
 const socket = io.connect(webSocketUri);
 // (this is the front end socket, it's different)
