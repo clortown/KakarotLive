@@ -1,8 +1,5 @@
 // Make connection
-var webSocketHost = location.protocol === 'https:' ? 'wss://' : 'ws://';
-var externalIp = $('body').data('external-ip');
-var webSocketUri = webSocketHost + externalIp + ':8080';
-console.log(webSocketUri);
+console.log('http://kakarotlive.appspot.com/');
 
 const socket = io.connect(webSocketUri);
 // (this is the front end socket, it's different)
