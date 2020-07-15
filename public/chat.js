@@ -1,5 +1,9 @@
 // Make connection
-const socket = io.connect('http://localhost:8080/');
+var webSocketHost = location.protocol === 'https:' ? 'wss://' : 'ws://';
+var externalIp = $('body').data('external-ip');
+var webSocketUri = webSocketHost + externalIp + ':65080';
+
+const socket = io.connect(webSocketUri);
 // (this is the front end socket, it's different)
 
 // Query DOM
@@ -19,6 +23,6 @@ btn.addEventListener('click', function () {
 });
 
 // Listen for events
-socket.on('chat', function(data){
+socket.on('chat', function (data) {
     output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>';
 });
