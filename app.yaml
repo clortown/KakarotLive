@@ -13,4 +13,8 @@
 
 # [START gae_quickstart_yaml]
 runtime: nodejs12
+
+# Need this for sockets:
+network:
+  session_affinity: true
 # [END gae_quickstart_yaml]

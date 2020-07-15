@@ -1,5 +1,5 @@
 // Make connection
-const socket = io.connect('http://192.168.1.104:8080/');
+const socket = io.connect('http://localhost:8080/');
 // (this is the front end socket, it's different)
 
 // Query DOM
