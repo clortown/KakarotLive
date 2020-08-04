@@ -1,7 +1,5 @@
 // Make connection
-console.log('http://kakarotlive.appspot.com/');
-
-const socket = io.connect(webSocketUri);
+const socket = io.connect('http://localhost:8080/');
 // (this is the front end socket, it's different)
 
 // Query DOM
