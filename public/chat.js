@@ -1,5 +1,5 @@
 // Make connection
-const socket = io.connect('http://localhost:8080/');
+const socket = io.connect('https://kakarotlive.uc.r.appspot.com/');
 // (this is the front end socket, it's different)
 
 // Query DOM
